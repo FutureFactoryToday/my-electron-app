@@ -1,0 +1,17 @@
+# Зависимости (их скачают заново через npm install)
+node_modules/
+
+# Папка с результатами сборки (инсталляторы, exe, appimage)
+out/
+
+# Логи ошибок npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Системные файлы macOS и Windows
+.DS_Store
+Thumbs.db
+
+# Конфиденциальные данные (если появятся)
+.env

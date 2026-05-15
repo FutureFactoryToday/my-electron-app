@@ -1,0 +1,95 @@
+body {
+    background-color: #0f0f0f;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    perspective: 1200px; /* Создает глубину для 3D */
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+}
+
+.metro-card {
+    width: 240px;
+    height: 240px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* Эффект при наведении (легкий наклон) */
+.metro-card:hover .card-inner {
+    transform: rotateY(15deg) translateZ(10px);
+}
+
+/* ГЛАВНЫЙ ЭФФЕКТ: Переворот при нажатии */
+.metro-card:active .card-inner {
+    transform: rotateY(180deg) translateZ(-50px) scale(0.95);
+}
+
+/* Общие стили сторон */
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Скрывает изнанку */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Лицевая сторона */
+.front {
+    background-color: #0078d7;
+    color: white;
+}
+
+/* Обратная сторона */
+.back {
+    background-color: #005a9e;
+    color: white;
+    transform: rotateY(180deg);
+    font-size: 1.1rem;
+    font-weight: 300;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.icon {
+    font-size: 70px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.label {
+    font-size: 18px;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* Анимация появления при запуске */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.metro-card {
+    animation: fadeInUp 0.8s ease-out both;
+}

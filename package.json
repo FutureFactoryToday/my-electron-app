@@ -1,0 +1,30 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "My First METRO-style UI",
+  "author": "Alex",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron . --no-sandbox",
+    "make": "electron-forge make",
+    "build": "electron-forge package && cp out/my-electron-app-linux-x64/my-electron-app ./my-app-binary && chmod +x ./my-app-binary"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.11.1",
+    "@electron-forge/maker-deb": "^7.11.1",
+    "@electron-forge/maker-rpm": "^7.11.1",
+    "@electron-forge/maker-squirrel": "^7.11.1",
+    "@electron-forge/maker-zip": "^7.11.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
+    "@electron-forge/plugin-fuses": "^7.11.1",
+    "@electron/fuses": "^1.8.0",
+    "@reforged/maker-appimage": "^5.2.0",
+    "electron": "^42.1.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1"
+  }
+}
