@@ -93,3 +93,63 @@ body {
 .metro-card {
     animation: fadeInUp 0.8s ease-out both;
 }
+
+/* Позиционирование в правом верхнем углу */
+.ios-corner-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999; /* Чтобы всегда был поверх всего */
+}
+
+/* Сама кнопка-переключатель (чистый iOS стиль) */
+.ios-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px; /* Немного уменьшил для угла */
+    height: 28px;
+}
+
+.ios-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ios-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #39393d; /* Цвет выключенного (серый) */
+    transition: 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    border-radius: 34px;
+}
+
+/* Белый кружок */
+.ios-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+/* Состояние "Включено" (Зеленый Apple) */
+input:checked + .ios-slider {
+    background-color: #34c759;
+}
+
+/* Движение кружка */
+input:checked + .ios-slider:before {
+    transform: translateX(22px);
+}
+
+/* Эффект легкого растяжения при клике */
+.ios-switch:active .ios-slider:before {
+    width: 26px;
+}
